@@ -1,0 +1,23 @@
+
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+import {Provider} from 'react-redux'
+import { store } from './app/store.jsx'
+import AppRoutes from './app/routes/AppRoutes.jsx'
+import {
+  QueryClient,
+  QueryClientProvider,
+  useQuery,
+} from '@tanstack/react-query'
+
+const queryClient = new QueryClient()
+
+createRoot(document.getElementById('root')).render(
+  <QueryClientProvider client={queryClient}>
+    <Provider store={store}>
+
+      <AppRoutes/>
+    </Provider>
+</QueryClientProvider> 
+)
